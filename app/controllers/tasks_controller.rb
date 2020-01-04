@@ -19,9 +19,9 @@ class TasksController < ApplicationController
       flash[:success] = 'タスクが登録されました。'
       redirect_to root_path
     else
-      @tasks = current_user.microposts.order(id: :desc).page(params[:page])
-      flash.now[:danger] =　'タスクの登録に失敗しました。'
-      render 'tasks'
+      @tasks = current_user.tasks.order(id: :desc).page(params[:page])
+      flash.now[:danger] = 'タスクの登録に失敗しました。'
+      render 'tasks/index'
     end
   end
   
